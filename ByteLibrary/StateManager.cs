@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace ByteLibrary
 {
-    public class StateManager<TState>
+    public class StateManager<TState> where TState : struct
     {
         private LinkedList<TState> stateHistory;
         private int maxHistory;
-        private int delayMillis;
-        private int lastStateChangeMillis;
+        private long delayMillis;
+        private long lastStateChangeMillis;
 
         public delegate void StateChangedHandler(TState state);
         public event StateChangedHandler StateChanged;
@@ -21,7 +21,7 @@ namespace ByteLibrary
             }
         }
 
-        public TState LastState
+        public Nullable<TState> LastState
         {
             get
             {
@@ -30,27 +30,25 @@ namespace ByteLibrary
                     return this.stateHistory.Last.Previous.Value;
                 }
 
-                return this.CurrentState;
+                return null;
             }
         }
 
-        public StateManager(TState initialState)
-            : this(initialState, 0) { }
-
-        public StateManager(TState initialState, int delayMillis)
+        public StateManager(TState initialState, long currentMillis, long delayMillis = 0)
         {
             if (!typeof(TState).IsEnum || Enum.GetValues(typeof(TState)).Length < 2)
             {
                 throw new ArgumentException(string.Format("{0} supports only Enum types of size 2 or greater.", this.GetType().ToString()));
             }
 
+            this.lastStateChangeMillis = currentMillis;
             this.delayMillis = delayMillis;
             this.maxHistory = Enum.GetValues(typeof(TState)).Length;
             this.stateHistory = new LinkedList<TState>();
             this.stateHistory.AddLast(initialState);
         }
 
-        public void SwitchState(TState state, int currentMillis)
+        public void SwitchState(TState state, long currentMillis)
         {
             if (currentMillis - this.lastStateChangeMillis >= this.delayMillis)
             {
@@ -70,7 +68,7 @@ namespace ByteLibrary
             }
         }
 
-        public void RevertState(int currentMillis)
+        public void RevertState(long currentMillis)
         {
             if (this.stateHistory.Count > 1)
             {

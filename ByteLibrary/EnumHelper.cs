@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ByteLibrary
 {
-    public static class EnumUtilities
+    public static class EnumHelper
     {
         public static IEnumerable<T> GetValues<T>()
         {
