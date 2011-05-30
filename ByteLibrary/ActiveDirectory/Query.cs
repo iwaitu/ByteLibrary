@@ -5,7 +5,7 @@ namespace ByteLibrary.ActiveDirectory
 {
     public class Query
     {
-        public static List<string> RunQuery(DirectoryEntry root, string filter, SearchScope scope)
+        public static IEnumerable<string> RunQuery(DirectoryEntry root, string filter, SearchScope scope)
         {
             var paths = new List<string>();
 

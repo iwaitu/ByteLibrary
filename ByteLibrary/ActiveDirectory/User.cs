@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
+using System.Linq;
 
 namespace ByteLibrary.ActiveDirectory
 {
@@ -138,12 +139,12 @@ namespace ByteLibrary.ActiveDirectory
             using (var root = new DirectoryEntry(string.Format("LDAP://{0}", domainController)))
             {
                 string queryString = string.Format("(&(sAMAccountName={0})(objectClass={1}))", sAMAccountName, objectClass);
-                List<string> paths = Query.RunQuery(root, queryString, SearchScope.Subtree);
-                return new DirectoryEntry(paths[0]);
+                IEnumerable<string> paths = Query.RunQuery(root, queryString, SearchScope.Subtree);
+                return new DirectoryEntry(paths.First());
             }
         }
 
-        public static List<string> FindActive(string domainController)
+        public static IEnumerable<string> FindActive(string domainController)
         {
             int normalUser = (int)ActiveDs.ADS_USER_FLAG.ADS_UF_NORMAL_ACCOUNT;
             int active = (int)ActiveDs.ADS_USER_FLAG.ADS_UF_ACCOUNTDISABLE;
@@ -161,7 +162,7 @@ namespace ByteLibrary.ActiveDirectory
             }
         }
 
-        public static List<string> FindAll(string domainController)
+        public static IEnumerable<string> FindAll(string domainController)
         {
             using (var root = new DirectoryEntry(string.Format("LDAP://{0}", domainController)))
             {
