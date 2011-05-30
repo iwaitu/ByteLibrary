@@ -170,11 +170,6 @@ namespace ByteLibrary.ActiveDirectory
             }
         }
 
-        /// <summary>
-        /// Deletes the specified user.
-        /// </summary>
-        /// <param name="domainController">The domainController to search under.</param>
-        /// <param name="sAMAccountName">The sAMAccountName of the user to delete.</param>
         public static void Delete(string domainController, string sAMAccountName)
         {
             using (DirectoryEntry entry = Find(domainController, sAMAccountName))
