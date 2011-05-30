@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ByteLibrary;
 using Xunit;
+using ByteLibrary.State;
 
-namespace ByteLibraryTest
+namespace ByteLibraryTest.StateTest
 {
     public class StateManagerTest
     {
