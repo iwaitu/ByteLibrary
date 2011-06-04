@@ -5,6 +5,7 @@ namespace ByteLibrary.State
 {
     public class StateManager<TState> where TState : struct
     {
+        private object stateHistoryLock = new object();
         private LinkedList<TState> stateHistory;
         private int maxHistory;
         private long delayMillis;
@@ -25,9 +26,12 @@ namespace ByteLibrary.State
         {
             get
             {
-                if (this.stateHistory.Count > 1)
+                lock (this.stateHistoryLock)
                 {
-                    return this.stateHistory.Last.Previous.Value;
+                    if (this.stateHistory.Count > 1)
+                    {
+                        return this.stateHistory.Last.Previous.Value;
+                    }
                 }
 
                 return null;
@@ -50,30 +54,46 @@ namespace ByteLibrary.State
 
         public void SwitchState(TState state, long currentMillis)
         {
-            if (currentMillis - this.lastStateChangeMillis >= this.delayMillis)
+            lock (this.stateHistoryLock)
             {
-                this.stateHistory.AddLast(state);
-
-                if (this.stateHistory.Count > this.maxHistory)
+                if (this.DelayHasElapsed(currentMillis))
                 {
-                    this.stateHistory.RemoveFirst();
+                    this.PerformStateChange(state, currentMillis);
                 }
-
-                if (this.StateChanged != null)
-                {
-                    this.StateChanged(this.CurrentState);
-                }
-
-                this.lastStateChangeMillis = currentMillis;
             }
         }
 
         public void RevertState(long currentMillis)
         {
-            if (this.stateHistory.Count > 1)
+            lock (this.stateHistoryLock)
             {
-                this.SwitchState(this.stateHistory.Last.Previous.Value, currentMillis);
+                if (this.stateHistory.Count > 1 && this.DelayHasElapsed(currentMillis))
+                {
+                    this.PerformStateChange(this.stateHistory.Last.Previous.Value, currentMillis);
+                }
             }
+        }
+
+        private bool DelayHasElapsed(long currentMillis)
+        {
+            return (currentMillis - this.lastStateChangeMillis >= this.delayMillis);
+        }
+
+        private void PerformStateChange(TState state, long currentMillis)
+        {
+            this.stateHistory.AddLast(state);
+
+            if (this.stateHistory.Count > this.maxHistory)
+            {
+                this.stateHistory.RemoveFirst();
+            }
+
+            if (this.StateChanged != null)
+            {
+                this.StateChanged(this.CurrentState);
+            }
+
+            this.lastStateChangeMillis = currentMillis;
         }
     }
 }
