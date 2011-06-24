@@ -8,6 +8,13 @@ namespace ByteLibraryTest
 {
     public class EnumHelperTest
     {
+        enum TestEnum
+        {
+            Alpha,
+            Beta,
+            Charlie
+        };
+
         [Fact]
         public void GetValues_enumerates_all_possible_enum_values()
         {

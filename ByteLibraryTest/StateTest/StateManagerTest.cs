@@ -1,11 +1,18 @@
 ﻿using System;
-using Xunit;
 using ByteLibrary.State;
+using Xunit;
 
 namespace ByteLibraryTest.StateTest
 {
     public class StateManagerTest
     {
+        enum TestEnum
+        {
+            Alpha,
+            Beta,
+            Charlie
+        };
+
         private long GetCurrentMillis()
         {
             return (long)(DateTime.Now - new DateTime(1970, 1, 1)).TotalMilliseconds;
