@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumHelper.cs" />
+    <Compile Include="IO\CsvParser.cs" />
+    <Compile Include="IO\ICsvFileDefinition.cs" />
     <Compile Include="Mvc\UnityDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="State\StateManager.cs" />

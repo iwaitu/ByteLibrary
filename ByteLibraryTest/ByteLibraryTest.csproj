@@ -55,6 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumHelperTest.cs" />
+    <Compile Include="IOTest\CsvParserTest.cs" />
+    <Compile Include="IOTest\TestColumnType.cs" />
+    <Compile Include="IOTest\TestCsvFileDefinition.cs" />
+    <Compile Include="IOTest\TestCsvParser.cs" />
+    <Compile Include="IOTest\TestParsedItem.cs" />
     <Compile Include="MvcTest\UnityDependencyResolverTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StateTest\StateManagerTest.cs" />
