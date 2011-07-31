@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 
-namespace ByteLibrary.Mvc
+namespace Byte.Library.Mvc
 {
     public class UnityDependencyResolver : IDependencyResolver
     {

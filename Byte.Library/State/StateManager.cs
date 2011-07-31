@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ByteLibrary.State
+namespace Byte.Library.State
 {
     public class StateManager<TState> where TState : struct
     {

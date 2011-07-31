@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using ByteLibrary.Mvc;
+using Byte.Library.Mvc;
 using Microsoft.Practices.Unity;
 using Xunit;
 
-namespace ByteLibraryTest.MvcTest
+namespace Byte.Library.UnitTests.MvcTest
 {
     public class UnityDependencyResolverTest
     {

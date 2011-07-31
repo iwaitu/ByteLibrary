@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace ByteLibraryTest.IOTest
+namespace Byte.Library.UnitTests.IOTest
 {
     public class CsvParserTest
     {

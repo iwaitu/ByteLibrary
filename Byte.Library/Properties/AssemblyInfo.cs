@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ByteLibrary")]
+[assembly: AssemblyTitle("Byte.Library")]
 [assembly: AssemblyDescription("My personal library of useful .NET code.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ben Lakey")]
-[assembly: AssemblyProduct("ByteLibrary")]
+[assembly: AssemblyProduct("Byte.Library")]
 [assembly: AssemblyCopyright("Copyright © Ben Lakey 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

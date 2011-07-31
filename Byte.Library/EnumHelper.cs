@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ByteLibrary
+namespace Byte.Library
 {
     public static class EnumHelper
     {

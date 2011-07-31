@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ByteLibrary.IO;
+using Byte.Library.IO;
 
-namespace ByteLibraryTest.IOTest
+namespace Byte.Library.UnitTests.IOTest
 {
     internal class TestCsvFileDefinition : ICsvFileDefinition<TestColumnType>
     {

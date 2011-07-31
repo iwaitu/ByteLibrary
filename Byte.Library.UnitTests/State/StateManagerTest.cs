@@ -1,8 +1,8 @@
 ﻿using System;
-using ByteLibrary.State;
+using Byte.Library.State;
 using Xunit;
 
-namespace ByteLibraryTest.StateTest
+namespace Byte.Library.UnitTests.StateTest
 {
     public class StateManagerTest
     {

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using ByteLibrary;
 using Xunit;
 
-namespace ByteLibraryTest
+namespace Byte.Library.UnitTests
 {
     public class EnumHelperTest
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ByteLibrary.IO
+namespace Byte.Library.IO
 {
     public interface ICsvFileDefinition<T> where T : struct
     {

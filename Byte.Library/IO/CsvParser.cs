@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace ByteLibrary.IO
+namespace Byte.Library.IO
 {
     public abstract class CsvParser<TColumnType, TParsed> where TColumnType : struct
     {
