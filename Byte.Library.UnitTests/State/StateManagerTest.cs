@@ -2,7 +2,7 @@
 using Byte.Library.State;
 using Xunit;
 
-namespace Byte.Library.UnitTests.StateTest
+namespace Byte.Library.UnitTests.State
 {
     public class StateManagerTest
     {

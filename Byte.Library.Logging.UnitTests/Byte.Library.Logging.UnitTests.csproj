@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B6944836-7A5B-42C6-AA14-D45D1506A45C}</ProjectGuid>
+    <ProjectGuid>{FFE663F4-9A0A-4F75-BCF5-172938D11B51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Byte.Library.UnitTests</RootNamespace>
-    <AssemblyName>Byte.Library.UnitTests</AssemblyName>
+    <RootNamespace>Byte.Library.Logging.UnitTests</RootNamespace>
+    <AssemblyName>Byte.Library.Logging.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,21 +43,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumHelperTest.cs" />
-    <Compile Include="CLI\ParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="State\StateManagerTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Byte.Library\Byte.Library.csproj">
-      <Project>{3DF30307-8D93-4825-8735-8EE3B17C5B35}</Project>
-      <Name>Byte.Library</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Byte.Library.Logging\Byte.Library.Logging.csproj">
+      <Project>{ADD47485-390D-424A-AF5D-52164F39F723}</Project>
+      <Name>Byte.Library.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

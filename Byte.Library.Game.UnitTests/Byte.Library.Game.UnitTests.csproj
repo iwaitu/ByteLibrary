@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B6944836-7A5B-42C6-AA14-D45D1506A45C}</ProjectGuid>
+    <ProjectGuid>{AE88BAB0-9C52-49AC-BEF6-EEF2FDF1F392}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Byte.Library.UnitTests</RootNamespace>
-    <AssemblyName>Byte.Library.UnitTests</AssemblyName>
+    <RootNamespace>Byte.Library.Game.UnitTests</RootNamespace>
+    <AssemblyName>Byte.Library.Game.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,21 +46,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumHelperTest.cs" />
-    <Compile Include="CLI\ParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="State\StateManagerTest.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Byte.Library\Byte.Library.csproj">
-      <Project>{3DF30307-8D93-4825-8735-8EE3B17C5B35}</Project>
-      <Name>Byte.Library</Name>
-    </ProjectReference>
+    <Compile Include="Xna\DirectionTest.cs" />
+    <Compile Include="Xna\Extensions\RectangleExtensionsTest.cs" />
+    <Compile Include="Xna\Extensions\TextureExtensionsTest.cs" />
+    <Compile Include="Xna\Helpers\TestEnum.cs" />
+    <Compile Include="Xna\Helpers\TestRenderer.cs" />
+    <Compile Include="Xna\Rendering\RenderingManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Byte.Library.Game\Byte.Library.Game.csproj">
+      <Project>{F2FD94F1-0CA5-48C8-9C58-7EEB84F0F6F5}</Project>
+      <Name>Byte.Library.Game</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
