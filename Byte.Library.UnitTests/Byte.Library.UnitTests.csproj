@@ -46,7 +46,6 @@
     <Compile Include="EnumHelperTest.cs" />
     <Compile Include="CLI\ParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="State\StateManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Byte.Library\Byte.Library.csproj">

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xunit>
+  <assemblies>
+    <assembly filename="Byte.Library.UnitTests\bin\Debug\Byte.Library.UnitTests.dll" shadow-copy="true" />
+    <assembly filename="Byte.Library.Collection.UnitTests\bin\Debug\Byte.Library.Collection.UnitTests.dll" shadow-copy="true" />
+    <assembly filename="Byte.Library.Game.UnitTests\bin\Debug\Byte.Library.Game.UnitTests.dll" shadow-copy="true" />
+    <assembly filename="Byte.Library.IO.UnitTests\bin\Debug\Byte.Library.IO.UnitTests.dll" shadow-copy="true" />
+    <assembly filename="Byte.Library.Logging.UnitTests\bin\Debug\Byte.Library.Logging.UnitTests.dll" shadow-copy="true" />
+    <assembly filename="Byte.Library.Web.UnitTests\bin\Debug\Byte.Library.Web.UnitTests.dll" shadow-copy="true" />
+  </assemblies>
+</xunit>

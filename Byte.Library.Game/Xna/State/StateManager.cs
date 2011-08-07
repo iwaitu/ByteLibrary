@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Byte.Library.State
+namespace Byte.Library.Game.Xna.State
 {
-    public class StateManager<TState> where TState : struct
+    public class StateManager
     {
+        private static readonly int InitialMaxHistory = 10;
+
         private object stateHistoryLock = new object();
-        private LinkedList<TState> stateHistory;
-        private int maxHistory;
+        private LinkedList<IGameState> stateHistory;
         private long delayMillis;
         private long lastStateChangeMillis;
 
-        public delegate void StateChangedHandler(TState state);
-        public event StateChangedHandler StateChanged;
+        public int MaxHistory { get; set; }
 
-        public TState CurrentState
+        public IGameState CurrentState
         {
             get
             {
@@ -22,7 +21,7 @@ namespace Byte.Library.State
             }
         }
 
-        public Nullable<TState> LastState
+        public IGameState LastState
         {
             get
             {
@@ -32,44 +31,53 @@ namespace Byte.Library.State
                     {
                         return this.stateHistory.Last.Previous.Value;
                     }
-                }
 
-                return null;
+                    return null;
+                }
             }
         }
 
-        public StateManager(TState initialState, long currentMillis, long delayMillis = 0)
-        {
-            if (!typeof(TState).IsEnum || Enum.GetValues(typeof(TState)).Length < 2)
-            {
-                throw new ArgumentException(string.Format("{0} supports only Enum types of size 2 or greater.", this.GetType().ToString()));
-            }
+        public delegate void StateChangedHandler(IGameState state);
+        public event StateChangedHandler StateChanged;
 
+        public StateManager(IGameState initialState, long currentMillis, long delayMillis = 0)
+        {
             this.lastStateChangeMillis = currentMillis;
             this.delayMillis = delayMillis;
-            this.maxHistory = Enum.GetValues(typeof(TState)).Length;
-            this.stateHistory = new LinkedList<TState>();
+            this.MaxHistory = InitialMaxHistory;
+            this.stateHistory = new LinkedList<IGameState>();
+
             this.stateHistory.AddLast(initialState);
         }
 
-        public void SwitchState(TState state, long currentMillis)
+        public bool SetState(IGameState state, long currentMillis)
         {
             lock (this.stateHistoryLock)
             {
                 if (this.DelayHasElapsed(currentMillis))
                 {
                     this.PerformStateChange(state, currentMillis);
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
 
-        public void RevertState(long currentMillis)
+        public bool RevertState(long currentMillis)
         {
             lock (this.stateHistoryLock)
             {
                 if (this.stateHistory.Count > 1 && this.DelayHasElapsed(currentMillis))
                 {
                     this.PerformStateChange(this.stateHistory.Last.Previous.Value, currentMillis);
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
@@ -79,11 +87,11 @@ namespace Byte.Library.State
             return (currentMillis - this.lastStateChangeMillis >= this.delayMillis);
         }
 
-        private void PerformStateChange(TState state, long currentMillis)
+        private void PerformStateChange(IGameState state, long currentMillis)
         {
             this.stateHistory.AddLast(state);
 
-            if (this.stateHistory.Count > this.maxHistory)
+            if (this.stateHistory.Count > this.MaxHistory)
             {
                 this.stateHistory.RemoveFirst();
             }

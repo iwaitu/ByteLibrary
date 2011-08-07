@@ -50,9 +50,8 @@
     <Compile Include="Xna\DirectionTest.cs" />
     <Compile Include="Xna\Extensions\RectangleExtensionsTest.cs" />
     <Compile Include="Xna\Extensions\TextureExtensionsTest.cs" />
-    <Compile Include="Xna\Helpers\TestEnum.cs" />
-    <Compile Include="Xna\Helpers\TestRenderer.cs" />
-    <Compile Include="Xna\Rendering\RenderingManagerTest.cs" />
+    <Compile Include="Xna\State\TestState.cs" />
+    <Compile Include="Xna\State\StateManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -63,6 +62,7 @@
       <Name>Byte.Library.Game</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
