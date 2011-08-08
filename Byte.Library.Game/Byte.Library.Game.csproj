@@ -48,8 +48,6 @@
     <Compile Include="Xna\Extensions\RectangleExtensions.cs" />
     <Compile Include="Xna\Extensions\SpriteBatchExtensions.cs" />
     <Compile Include="Xna\Extensions\TextureExtensions.cs" />
-    <Compile Include="Xna\State\IGameState.cs" />
-    <Compile Include="Xna\State\StateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Byte.Library\Byte.Library.csproj">

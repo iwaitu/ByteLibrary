@@ -50,8 +50,6 @@
     <Compile Include="Xna\DirectionTest.cs" />
     <Compile Include="Xna\Extensions\RectangleExtensionsTest.cs" />
     <Compile Include="Xna\Extensions\TextureExtensionsTest.cs" />
-    <Compile Include="Xna\State\TestState.cs" />
-    <Compile Include="Xna\State\StateManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
