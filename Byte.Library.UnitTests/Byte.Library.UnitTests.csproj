@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="EnumHelperTest.cs" />
     <Compile Include="CLI\ParserTest.cs" />
+    <Compile Include="Extensions\ObjectExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
