@@ -146,6 +146,7 @@
     <Compile Include="ObjectExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\PasswordHasherTests.cs" />
+    <Compile Include="SlugMakerTests.cs" />
     <Compile Include="StringExtensionsTests.cs" />
     <Compile Include="Web\AreaRegistrationBaseTests.cs" />
     <Compile Include="Web\HtmlHelperExtensionsTests.cs" />
